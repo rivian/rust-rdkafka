@@ -7,6 +7,7 @@ use crate::types::RDKafkaRespErr::*;
 
 pub fn rd_kafka_resp_err_t_to_rdkafka_error(err: RDKafkaRespErr) -> RDKafkaErrorCode {
     match err {
+
         RD_KAFKA_RESP_ERR__BEGIN => Begin,
         RD_KAFKA_RESP_ERR__BAD_MSG => BadMessage,
         RD_KAFKA_RESP_ERR__BAD_COMPRESSION => BadCompression,
@@ -174,5 +175,15 @@ pub fn rd_kafka_resp_err_t_to_rdkafka_error(err: RDKafkaRespErr) -> RDKafkaError
         RD_KAFKA_RESP_ERR_PRINCIPAL_DESERIALIZATION_FAILURE => PrincipalDeserializationFailure,
         RD_KAFKA_RESP_ERR_END_ALL => EndAll,
         RD_KAFKA_RESP_ERR__LOG_TRUNCATION => LogTruncation,
+
+        RD_KAFKA_RESP_ERR__INVALID_DIFFERENT_RECORD => BadMessage,
+        RD_KAFKA_RESP_ERR_UNKNOWN_TOPIC_ID => BadMessage,
+        RD_KAFKA_RESP_ERR_FENCED_MEMBER_EPOCH => BadMessage,
+        RD_KAFKA_RESP_ERR_UNRELEASED_INSTANCE_ID => BadMessage,
+        RD_KAFKA_RESP_ERR_UNSUPPORTED_ASSIGNOR => BadMessage,
+        RD_KAFKA_RESP_ERR_STALE_MEMBER_EPOCH => BadMessage,
+
+        RD_KAFKA_RESP_ERR_UNKNOWN_SUBSCRIPTION_ID => BadMessage,
+        RD_KAFKA_RESP_ERR_TELEMETRY_TOO_LARGE => BadMessage,
     }
 }
